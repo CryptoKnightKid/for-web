@@ -1,1 +1,39 @@
 @layer reset, base, tokens, recipes, utilities;
+
+@layer base {
+  :root {
+    --fortuna-black: #050505;
+    --fortuna-ink: #0c0b09;
+    --fortuna-panel: #15130f;
+    --fortuna-panel-high: #211c14;
+    --fortuna-gold: #c9a447;
+    --fortuna-gold-bright: #f2d58a;
+    --fortuna-garnet: #7a1118;
+    --fortuna-ruby: #b61d33;
+    --fortuna-diamond: #d9e7f5;
+
+    --md-sys-color-background: var(--fortuna-black);
+    --md-sys-color-surface: var(--fortuna-ink);
+    --md-sys-color-surface-container-low: #100f0d;
+    --md-sys-color-surface-container: var(--fortuna-panel);
+    --md-sys-color-surface-container-high: var(--fortuna-panel-high);
+    --md-sys-color-surface-variant: #211b12;
+    --md-sys-color-primary: var(--fortuna-gold);
+    --md-sys-color-on-primary: #0b0905;
+    --md-sys-color-primary-container: #2b2213;
+    --md-sys-color-on-primary-container: var(--fortuna-gold-bright);
+    --md-sys-color-secondary: #3b3020;
+    --md-sys-color-on-secondary: #f4ead3;
+    --md-sys-color-secondary-container: #241d13;
+    --md-sys-color-on-secondary-container: #fff5dd;
+    --md-sys-color-outline: #6d5a35;
+    --md-sys-color-outline-variant: #342a1a;
+    --md-sys-color-shadow: rgba(0, 0, 0, 0.72);
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 20% 0%, rgba(201, 164, 71, 0.14), transparent 32rem),
+      linear-gradient(135deg, #050505 0%, #0c0a07 45%, #060606 100%);
+  }
+}

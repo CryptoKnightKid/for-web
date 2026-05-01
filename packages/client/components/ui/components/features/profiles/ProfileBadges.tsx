@@ -5,16 +5,11 @@ import { Trans, useLingui } from "@lingui-solid/solid/macro";
 import { User, UserBadges } from "stoat.js";
 import { styled } from "styled-system/jsx";
 
-import badgeJoke1 from "../../../../../public/assets/badges/amog.svg";
-import badgeJoke2 from "../../../../../public/assets/badges/amorbus.svg";
-import badgeDeveloper from "../../../../../public/assets/badges/developer.svg";
-import badgeEarlyAdopter from "../../../../../public/assets/badges/early_adopter.svg";
-import badgeFounder from "../../../../../public/assets/badges/founder.svg";
-import badgeModeration from "../../../../../public/assets/badges/moderation.svg";
-import badgePaw from "../../../../../public/assets/badges/paw.svg";
-import badgeRaccoon from "../../../../../public/assets/badges/raccoon.svg";
-import badgeSupporter from "../../../../../public/assets/badges/supporter.svg";
-import badgeTranslator from "../../../../../public/assets/badges/translator.svg";
+import badgeDiamond from "../../../../../public/assets/badges/fortuna_diamond.svg";
+import badgeGarnet from "../../../../../public/assets/badges/fortuna_garnet.svg";
+import badgeInnerCircle from "../../../../../public/assets/badges/fortuna_inner_circle.svg";
+import badgeRuby from "../../../../../public/assets/badges/fortuna_ruby.svg";
+import badgeVip from "../../../../../public/assets/badges/fortuna_vip.svg";
 import { Text } from "../../design";
 
 import { ProfileCard } from "./ProfileCard";
@@ -35,10 +30,10 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Stoat Founder`,
+                  content: t`Garnet member`,
                 },
               }}
-              src={badgeFounder}
+              src={badgeGarnet}
             />
           </Show>
           <Show when={props.user.badges & UserBadges.Developer}>
@@ -46,10 +41,10 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Stoat Developer`,
+                  content: t`Ruby member`,
                 },
               }}
-              src={badgeDeveloper}
+              src={badgeRuby}
             />
           </Show>
           <Show when={props.user.badges & UserBadges.Supporter}>
@@ -57,10 +52,10 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Donated to Stoat`,
+                  content: t`VIP member`,
                 },
               }}
-              src={badgeSupporter}
+              src={badgeVip}
             />
           </Show>
           <Show when={props.user.badges & UserBadges.Translator}>
@@ -68,10 +63,10 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Helped translate Stoat`,
+                  content: t`Diamond member`,
                 },
               }}
-              src={badgeTranslator}
+              src={badgeDiamond}
             />
           </Show>
           <Show when={props.user.badges & UserBadges.EarlyAdopter}>
@@ -79,10 +74,10 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`One of the first 1000 users!`,
+                  content: t`Inner Circle member`,
                 },
               }}
-              src={badgeEarlyAdopter}
+              src={badgeInnerCircle}
             />
           </Show>
           <Show when={props.user.badges & UserBadges.PlatformModeration}>
@@ -90,11 +85,11 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Platform Moderator`,
+                  content: t`Fortuna concierge`,
                 },
               }}
             >
-              <img src={badgeModeration} />
+              <img src={badgeVip} />
             </span>
           </Show>
           <Show when={props.user.badges & UserBadges.ResponsibleDisclosure}>
@@ -102,59 +97,22 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Responsibly disclosed security issues`,
+                  content: t`Trusted operator`,
                 },
               }}
             >
               <BiSolidShield />
             </span>
           </Show>
-          <Show
-            when={props.user.badges & UserBadges.ReservedRelevantJokeBadge1}
-          >
-            <img
-              use:floating={{
-                tooltip: {
-                  placement: "top",
-                  content: t`irrelevant joke badge 1`,
-                },
-              }}
-              src={badgeJoke1}
-            />
-          </Show>
-          <Show
-            when={props.user.badges & UserBadges.ReservedRelevantJokeBadge1}
-          >
-            <img
-              use:floating={{
-                tooltip: {
-                  placement: "top",
-                  content: t`irrelevant joke badge 2`,
-                },
-              }}
-              src={badgeJoke2}
-            />
-          </Show>
           <Show when={props.user.badges & UserBadges.Paw}>
             <img
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: "🦊",
+                  content: t`Meet Tony access`,
                 },
               }}
-              src={badgePaw}
-            />
-          </Show>
-          <Show when={props.user.id === "01EX2NCWQ0CHS3QJF0FEQS1GR4"}>
-            <img
-              use:floating={{
-                tooltip: {
-                  placement: "top",
-                  content: "🦝",
-                },
-              }}
-              src={badgeRaccoon}
+              src={badgeInnerCircle}
             />
           </Show>
         </BadgeRow>
@@ -170,9 +128,10 @@ const BadgeRow = styled("div", {
     flexWrap: "wrap",
 
     "& img, & svg": {
-      width: "24px",
-      height: "24px",
+      width: "28px",
+      height: "28px",
       aspectRatio: "1/1",
+      filter: "drop-shadow(0 0 8px rgba(201, 164, 71, 0.28))",
     },
   },
 });

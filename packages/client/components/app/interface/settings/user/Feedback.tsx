@@ -44,7 +44,7 @@ export function Feedback() {
           </CategoryButton>
         </Link> */}
         <Link
-          href="https://github.com/orgs/stoatchat/discussions/categories/feature-suggestions"
+          href="mailto:team@fortunaone.com?subject=Fortuna%20One%20app%20feature%20suggestion"
           target="_blank"
         >
           <CategoryButton
@@ -52,14 +52,14 @@ export function Feedback() {
             icon={<MdStar {...iconSize(22)} />}
             onClick={() => void 0}
             description={
-              <Trans>Suggest new Stoat features on GitHub discussions.</Trans>
+              <Trans>Suggest new Fortuna One app features.</Trans>
             }
           >
             <Trans>Submit feature suggestion</Trans>
           </CategoryButton>
         </Link>
         <Link
-          href="https://github.com/orgs/stoatchat/discussions/categories/feedback"
+          href="mailto:team@fortunaone.com?subject=Fortuna%20One%20app%20feedback"
           target="_blank"
         >
           <CategoryButton
@@ -72,7 +72,7 @@ export function Feedback() {
           </CategoryButton>
         </Link>
         <Link
-          href="https://github.com/stoatchat/for-web/issues?q=is%3Aissue%20state%3Aopen%20type%3ABug"
+          href="mailto:team@fortunaone.com?subject=Fortuna%20One%20app%20bug%20report"
           target="_blank"
         >
           <CategoryButton
@@ -93,13 +93,13 @@ export function Feedback() {
               }}
               description={
                 <Trans>
-                  You can report issues and discuss improvements with us
-                  directly here.
+                  Open the core Fortuna One room for support and member
+                  feedback.
                 </Trans>
               }
               icon={<MdGroups3 />}
             >
-              <Trans>Go to the Stoat Lounge</Trans>
+              <Trans>Go to the Fortuna Room</Trans>
             </CategoryButton>
           </Match>
           <Match when={showLoungeButton && !isInLounge}>
@@ -112,13 +112,13 @@ export function Feedback() {
               }}
               description={
                 <Trans>
-                  You can report issues and discuss improvements with us
-                  directly here.
+                  Join the core Fortuna One room for support and member
+                  feedback.
                 </Trans>
               }
               icon={<MdGroups3 />}
             >
-              <Trans>Join the Stoat Lounge</Trans>
+              <Trans>Join the Fortuna Room</Trans>
             </CategoryButton>
           </Match>
         </Switch>

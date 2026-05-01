@@ -1,4 +1,3 @@
-import { BiLogosGithub } from "solid-icons/bi";
 import { JSX } from "solid-js";
 
 import { Trans } from "@lingui-solid/solid/macro";
@@ -12,7 +11,6 @@ import MdDarkMode from "@material-design-icons/svg/filled/dark_mode.svg?componen
 
 import background from "./background.jpg";
 import { FlowBase } from "./flows/Flow";
-import bluesky from "./flows/bluesky.svg";
 
 /**
  * Authentication page layout
@@ -148,37 +146,31 @@ export function AuthPage(props: { children: JSX.Element }) {
         <Nav>
           <NavItems variant="stack">
             <NavItems>
-              <LinkWithIcon href="https://github.com/stoatchat" target="_blank">
-                <BiLogosGithub size={24} />
-              </LinkWithIcon>
               <LinkWithIcon
-                href="https://bsky.app/profile/stoat.chat"
+                href="mailto:team@fortunaone.com?subject=Fortuna%20One%20app%20support"
                 target="_blank"
               >
-                <img
-                  src={bluesky}
-                  style={{ height: "22px", "padding-top": "3px" }}
-                />
+                <Trans>Support</Trans>
               </LinkWithIcon>
             </NavItems>
             <Bullet />
             <NavItems>
-              <a href="https://stoat.chat/about" target="_blank">
+              <a href="https://fortunaone.com" target="_blank">
                 <Trans>About</Trans>
               </a>
-              <a href="https://stoat.chat/terms" target="_blank">
+              <a href="https://fortunaone.com/terms" target="_blank">
                 <Trans>Terms of Service</Trans>
               </a>
-              <a href="https://stoat.chat/privacy" target="_blank">
+              <a href="https://fortunaone.com/privacy" target="_blank">
                 <Trans>Privacy Policy</Trans>
               </a>
             </NavItems>
           </NavItems>
           <NavItems variant="hide">
-            <Trans>Image by {"@fakurian"}</Trans>
+            <Trans>Fortuna One private network</Trans>
             <Bullet />
-            <a href="https://unsplash.com/" target="_blank" rel="noreferrer">
-              unsplash.com
+            <a href="https://fortunaone.com" target="_blank" rel="noreferrer">
+              fortunaone.com
             </a>
           </NavItems>
         </Nav>

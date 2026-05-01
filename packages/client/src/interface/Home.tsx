@@ -95,7 +95,7 @@ export function HomePage() {
   const navigate = useNavigate();
   const client = useClient();
 
-  // check if we're stoat.chat; if so, check if the user is in the Lounge
+  // Check whether this deployment exposes a default member room.
   const showLoungeButton = CONFIGURATION.IS_STOAT;
   const isInLounge =
     client()!.servers.get("01F7ZSBSFHQ8TA81725KQCSDDP") !== undefined;
@@ -128,13 +128,13 @@ export function HomePage() {
               }
               description={
                 <Trans>
-                  Invite all of your friends, some cool bots, and throw a big
-                  party.
+                  Create a private space for a pod, city room, speaker thread,
+                  or member project.
                 </Trans>
               }
               icon={<MdAddCircle />}
             >
-              <Trans>Create a group or server</Trans>
+              <Trans>Create a room</Trans>
             </CategoryButton>
             <Switch fallback={null}>
               <Match when={showLoungeButton && isInLounge}>
@@ -142,13 +142,13 @@ export function HomePage() {
                   onClick={() => navigate("/server/01F7ZSBSFHQ8TA81725KQCSDDP")}
                   description={
                     <Trans>
-                      You can report issues and discuss improvements with us
-                      directly here.
+                      Open the core Fortuna One room for member updates,
+                      operator help, and app feedback.
                     </Trans>
                   }
                   icon={<MdGroups3 />}
                 >
-                  <Trans>Go to the Stoat Lounge</Trans>
+                  <Trans>Go to the Fortuna Room</Trans>
                 </CategoryButton>
               </Match>
               <Match when={showLoungeButton && !isInLounge}>
@@ -163,25 +163,27 @@ export function HomePage() {
                   }}
                   description={
                     <Trans>
-                      You can report issues and discuss improvements with us
-                      directly here.
+                      Join the core Fortuna One room for member updates,
+                      operator help, and app feedback.
                     </Trans>
                   }
                   icon={<MdGroups3 />}
                 >
-                  <Trans>Join the Stoat Lounge</Trans>
+                  <Trans>Join the Fortuna Room</Trans>
                 </CategoryButton>
               </Match>
             </Switch>
             <CategoryButton
               variant="tertiary"
-              onClick={() => window.open("https://ko-fi.com/stoatchat")}
+              onClick={() => window.open("https://limitlessx.com", "_blank")}
               description={
-                <Trans>Support the project by donating - thank you!</Trans>
+                <Trans>
+                  Explore the next room when you are ready for deeper access.
+                </Trans>
               }
               icon={<MdPayments />}
             >
-              <Trans>Donate to Stoat</Trans>
+              <Trans>LimitlessX pathway</Trans>
             </CategoryButton>
           </SeparatedColumn>
           <SeparatedColumn>
@@ -190,12 +192,12 @@ export function HomePage() {
                 onClick={() => navigate("/discover")}
                 description={
                   <Trans>
-                    Find a community based on your hobbies or interests.
+                    Browse rooms, pods, campuses, resources, and live sessions.
                   </Trans>
                 }
                 icon={<MdExplore />}
               >
-                <Trans>Discover Stoat</Trans>
+                <Trans>Explore Fortuna</Trans>
               </CategoryButton>
             </Show>
             <CategoryButton
@@ -208,12 +210,12 @@ export function HomePage() {
               }
               description={
                 <Trans>
-                  Let us know how we can improve our app by giving us feedback.
+                  Tell the Fortuna team what would make the room better.
                 </Trans>
               }
               icon={<MdRateReview {...iconSize(22)} />}
             >
-              <Trans>Give feedback on Stoat</Trans>
+              <Trans>Give feedback</Trans>
             </CategoryButton>
             <CategoryButton
               onClick={() => openModal({ type: "settings", config: "user" })}

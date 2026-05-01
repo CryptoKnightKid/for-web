@@ -34,16 +34,16 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 4000000,
       },
       manifest: {
-        name: "Stoat",
-        short_name: "Stoat",
-        description: "User-first open source chat platform.",
-        categories: ["communication", "chat", "messaging"],
+        name: "Fortuna One",
+        short_name: "Fortuna",
+        description: "The private Fortuna One member network.",
+        categories: ["business", "communication", "chat", "events"],
         start_url: base,
         orientation: "portrait",
         display_override: ["window-controls-overlay"],
         display: "standalone",
-        background_color: "#101823",
-        theme_color: "#101823",
+        background_color: "#050505",
+        theme_color: "#050505",
         icons: [
           {
             src: `${base}assets/web/android-chrome-192x192.png`,
