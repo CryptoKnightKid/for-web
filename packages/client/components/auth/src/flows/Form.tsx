@@ -152,6 +152,8 @@ export function Form(props: Props) {
       if (!hcaptcha) return alert("hCaptcha not loaded!");
       const response = await hcaptcha.execute();
       formData.set("captcha", response!.response);
+    } else {
+      formData.delete("captcha");
     }
 
     try {

@@ -30,10 +30,10 @@ export default function FlowCreate() {
    * @param data Form Data
    */
   async function create(data: FormData) {
-    const email = data.get("email") as string;
+    const email = (data.get("email") as string).trim().toLowerCase();
     const password = data.get("new-password") as string;
-    const captcha = data.get("captcha") as string;
-    const invite = data.get("invite") as string;
+    const captcha = String(data.get("captcha") ?? "").trim();
+    const invite = String(data.get("invite") ?? "").trim();
 
     await api.post("/auth/account/create", {
       email,

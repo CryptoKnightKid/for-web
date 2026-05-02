@@ -22,4 +22,11 @@ if (import.meta.env.PROD) {
       setInterval(() => r!.update(), 36e5);
     },
   });
+} else if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .getRegistrations()
+    .then((registrations) =>
+      Promise.all(registrations.map((registration) => registration.unregister())),
+    )
+    .catch((err) => console.warn("Failed to clear dev service workers", err));
 }
