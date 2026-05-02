@@ -13,14 +13,9 @@ import {
 } from "../../fortuna/layers";
 
 import { ChannelHeader } from "./ChannelHeader";
-import { TextChannel } from "./text/TextChannel";
 
 export function FortunaLayerPage(props: { channel: Channel }) {
   const [meta, setMeta] = createSignal(parseLayerMeta(props.channel.description)!);
-
-  if (meta().type === "feed") {
-    return <TextChannel channel={props.channel} />;
-  }
 
   async function update(next: FortunaLayerMeta) {
     await props.channel.edit({ description: encodeLayerMeta(next) });

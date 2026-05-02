@@ -71,10 +71,14 @@ export const ChannelPage: Component = () => {
 
 function ShowLayerOrChannel(props: { channel: Channel }) {
   const layer = createMemo(() => parseLayerMeta(props.channel.description));
+  const shouldRenderFortunaLayer = () => {
+    const type = layer()?.type;
+    return !!type && type !== "channel" && type !== "feed";
+  };
 
   return (
     <Switch fallback={<TextChannel channel={props.channel} />}>
-      <Match when={layer()?.type && layer()?.type !== "channel"}>
+      <Match when={shouldRenderFortunaLayer()}>
         <FortunaLayerPage channel={props.channel} />
       </Match>
     </Switch>
