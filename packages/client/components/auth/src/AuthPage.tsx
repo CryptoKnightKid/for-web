@@ -1,6 +1,5 @@
 import { JSX } from "solid-js";
 
-import { Trans } from "@lingui-solid/solid/macro";
 import { styled } from "styled-system/jsx";
 
 import { Titlebar } from "@revolt/app/interface/desktop/Titlebar";
@@ -150,24 +149,24 @@ export function AuthPage(props: { children: JSX.Element }) {
                 href="mailto:team@fortunaone.com?subject=Fortuna%20One%20app%20support"
                 target="_blank"
               >
-                <Trans>Support</Trans>
+                Support
               </LinkWithIcon>
             </NavItems>
             <Bullet />
             <NavItems>
               <a href="https://fortunaone.com" target="_blank">
-                <Trans>About</Trans>
+                About
               </a>
               <a href="https://fortunaone.com/terms" target="_blank">
-                <Trans>Terms of Service</Trans>
+                Terms of Service
               </a>
               <a href="https://fortunaone.com/privacy" target="_blank">
-                <Trans>Privacy Policy</Trans>
+                Privacy Policy
               </a>
             </NavItems>
           </NavItems>
           <NavItems variant="hide">
-            <Trans>Fortuna One private network</Trans>
+            Fortuna One private network
             <Bullet />
             <a href="https://fortunaone.com" target="_blank" rel="noreferrer">
               fortunaone.com

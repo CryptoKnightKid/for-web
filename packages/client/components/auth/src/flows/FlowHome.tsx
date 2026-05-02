@@ -1,6 +1,5 @@
 import { Match, Show, Switch } from "solid-js";
 
-import { Trans } from "@lingui-solid/solid/macro";
 import { css } from "styled-system/css";
 
 import { useClientLifecycle } from "@revolt/client";
@@ -48,18 +47,14 @@ export default function FlowHome() {
                 }}
               >
                 <span>
-                  <Trans>
-                    Enter the room,
-                    <br />
-                    build with the network.
-                  </Trans>
+                  Enter the room,
+                  <br />
+                  build with the network.
                 </span>
               </b>
               <span style={{ "text-align": "center", opacity: "0.5" }}>
-                <Trans>
-                  Fortuna One is the private member network for rooms, pods,
-                  live sessions, resources, and premium access.
-                </Trans>
+                Fortuna One is the private member network for rooms, pods, live
+                sessions, resources, and premium access.
               </span>
             </Column>
 
@@ -68,15 +63,13 @@ export default function FlowHome() {
               <a href="/login/auth">
                 <Column>
                   <Button variant={hasGoogleLogin() ? "tonal" : "filled"}>
-                    <Trans>Log In</Trans>
+                    Log In
                   </Button>
                 </Column>
               </a>
               <a href="/login/create">
                 <Column>
-                  <Button variant="tonal">
-                    <Trans>Sign Up</Trans>
-                  </Button>
+                  <Button variant="tonal">Sign Up</Button>
                 </Column>
               </a>
             </Column>
@@ -87,9 +80,7 @@ export default function FlowHome() {
       <Match when={isError()}>
         <Switch fallback={"an unknown error occurred"}>
           <Match when={lifecycle.permanentError === "InvalidSession"}>
-            <h1>
-              <Trans>You were logged out!</Trans>
-            </h1>
+            <h1>You were logged out!</h1>
           </Match>
         </Switch>
 
@@ -101,7 +92,7 @@ export default function FlowHome() {
             })
           }
         >
-          <Trans>OK</Trans>
+          OK
         </Button>
       </Match>
     </Switch>
