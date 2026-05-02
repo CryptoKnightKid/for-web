@@ -1,5 +1,3 @@
-import { Trans } from "@lingui-solid/solid/macro";
-
 import { CONFIGURATION } from "@revolt/common";
 import { Button, Column } from "@revolt/ui";
 
@@ -22,9 +20,7 @@ export function GoogleLoginButton() {
       {(href) => (
         <a href={href()}>
           <Column>
-            <Button>
-              <Trans>Continue with Google</Trans>
-            </Button>
+            <Button>Continue with Google</Button>
           </Column>
         </a>
       )}
