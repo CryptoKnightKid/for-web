@@ -3,7 +3,7 @@ import { For, Match, Show, Switch, createSignal } from "solid-js";
 import type { Channel } from "stoat.js";
 import { styled } from "styled-system/jsx";
 
-import { Header, main, typography } from "@revolt/ui";
+import { Header, main } from "@revolt/ui";
 import { Symbol } from "@revolt/ui/components/utils/Symbol";
 
 import {
@@ -196,7 +196,8 @@ const LayerIcon = styled("div", {
 
 const Kicker = styled("p", {
   base: {
-    ...typography.raw({ class: "label", size: "small" }),
+    fontSize: "12px",
+    fontWeight: 700,
     color: "var(--fortuna-gold-bright)",
     textTransform: "uppercase",
   },

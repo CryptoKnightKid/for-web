@@ -5,7 +5,7 @@ import { styled } from "styled-system/jsx";
 
 import { useClient } from "@revolt/client";
 import { useNavigate } from "@revolt/routing";
-import { Button, Dialog, DialogProps, Row, typography } from "@revolt/ui";
+import { Button, Dialog, DialogProps, Row } from "@revolt/ui";
 import { Symbol } from "@revolt/ui/components/utils/Symbol";
 
 import { useModals } from "..";
@@ -265,14 +265,16 @@ const IconBox = styled("div", {
 
 const LayerTitle = styled("strong", {
   base: {
-    ...typography.raw({ class: "label" }),
+    fontSize: "14px",
+    fontWeight: 700,
     color: "var(--md-sys-color-on-surface)",
   },
 });
 
 const LayerDescription = styled("span", {
   base: {
-    ...typography.raw({ class: "body", size: "small" }),
+    fontSize: "13px",
+    fontWeight: 400,
     color: "rgba(255, 255, 255, 0.62)",
     lineHeight: 1.35,
   },
@@ -288,7 +290,8 @@ const Footer = styled(Row, {
 
 const Hint = styled("p", {
   base: {
-    ...typography.raw({ class: "label", size: "small" }),
+    fontSize: "12px",
+    fontWeight: 600,
     maxWidth: "360px",
     color: "rgba(255, 255, 255, 0.48)",
   },
