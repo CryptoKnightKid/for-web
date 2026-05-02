@@ -1,12 +1,10 @@
-import { Match, Show, Switch } from "solid-js";
+import { Match, Show, Switch, createMemo } from "solid-js";
 
 import { Trans } from "@lingui-solid/solid/macro";
-import { PublicChannelInvite } from "stoat.js";
 import { css, cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
 import { IS_DEV, useClient } from "@revolt/client";
-import { CONFIGURATION } from "@revolt/common";
 import { useModals } from "@revolt/modal";
 import { useNavigate } from "@revolt/routing";
 import {
@@ -95,10 +93,9 @@ export function HomePage() {
   const navigate = useNavigate();
   const client = useClient();
 
-  // Check whether this deployment exposes a default member room.
-  const showLoungeButton = CONFIGURATION.IS_STOAT;
-  const isInLounge =
-    client()!.servers.get("01F7ZSBSFHQ8TA81725KQCSDDP") !== undefined;
+  const fortunaServer = createMemo(() =>
+    [...client().servers.values()].find((server) => server.name === "Fortuna One"),
+  );
 
   return (
     <Base>
@@ -137,39 +134,18 @@ export function HomePage() {
               <Trans>Create a room</Trans>
             </CategoryButton>
             <Switch fallback={null}>
-              <Match when={showLoungeButton && isInLounge}>
+              <Match when={fortunaServer()}>
                 <CategoryButton
-                  onClick={() => navigate("/server/01F7ZSBSFHQ8TA81725KQCSDDP")}
+                  onClick={() => navigate(`/server/${fortunaServer()!.id}`)}
                   description={
                     <Trans>
-                      Open the core Fortuna One room for member updates,
-                      operator help, and app feedback.
+                      Open the seeded Fortuna One room for member updates,
+                      city spaces, resources, live sessions, and VIP areas.
                     </Trans>
                   }
                   icon={<MdGroups3 />}
                 >
                   <Trans>Go to the Fortuna Room</Trans>
-                </CategoryButton>
-              </Match>
-              <Match when={showLoungeButton && !isInLounge}>
-                <CategoryButton
-                  onClick={() => {
-                    client()
-                      .api.get("/invites/Testers")
-                      .then((invite) =>
-                        PublicChannelInvite.from(client(), invite),
-                      )
-                      .then((invite) => openModal({ type: "invite", invite }));
-                  }}
-                  description={
-                    <Trans>
-                      Join the core Fortuna One room for member updates,
-                      operator help, and app feedback.
-                    </Trans>
-                  }
-                  icon={<MdGroups3 />}
-                >
-                  <Trans>Join the Fortuna Room</Trans>
                 </CategoryButton>
               </Match>
             </Switch>
@@ -187,19 +163,18 @@ export function HomePage() {
             </CategoryButton>
           </SeparatedColumn>
           <SeparatedColumn>
-            <Show when={CONFIGURATION.IS_STOAT}>
-              <CategoryButton
-                onClick={() => navigate("/discover")}
-                description={
-                  <Trans>
-                    Browse rooms, pods, campuses, resources, and live sessions.
-                  </Trans>
-                }
-                icon={<MdExplore />}
-              >
-                <Trans>Explore Fortuna</Trans>
-              </CategoryButton>
-            </Show>
+            <CategoryButton
+              onClick={() => navigate("/discover")}
+              description={
+                <Trans>
+                  Browse rooms, pods, campuses, resources, badges, and live
+                  sessions.
+                </Trans>
+              }
+              icon={<MdExplore />}
+            >
+              <Trans>Explore Fortuna</Trans>
+            </CategoryButton>
             <CategoryButton
               onClick={() =>
                 openModal({
