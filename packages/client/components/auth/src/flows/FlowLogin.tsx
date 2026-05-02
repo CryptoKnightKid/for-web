@@ -20,6 +20,7 @@ import MdArrowBack from "@material-design-icons/svg/filled/arrow_back.svg?compon
 import { useState } from "@revolt/state";
 import { FlowTitle } from "./Flow";
 import { Fields, Form } from "./Form";
+import { GoogleLoginButton } from "./GoogleLoginButton";
 
 /**
  * Flow for logging into an account
@@ -66,6 +67,7 @@ export default function FlowLogin() {
             >
               <Trans>Welcome!</Trans>
             </FlowTitle>
+            <GoogleLoginButton />
             <Form onSubmit={performLogin}>
               <Fields fields={["email", "password"]} />
               <Column gap="xl" align>

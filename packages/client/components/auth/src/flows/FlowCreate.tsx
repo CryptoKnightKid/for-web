@@ -12,6 +12,7 @@ import { Show } from "solid-js";
 import { FlowTitle } from "./Flow";
 import { setFlowCheckEmail } from "./FlowCheck";
 import { Fields, Form } from "./Form";
+import { GoogleLoginButton } from "./GoogleLoginButton";
 
 /**
  * Flow for creating a new account
@@ -70,6 +71,7 @@ export default function FlowCreate() {
       <FlowTitle subtitle={<Trans>Create an account</Trans>} emoji="wave">
         <Trans>Hello!</Trans>
       </FlowTitle>
+      <GoogleLoginButton />
       <Form onSubmit={create} captcha={CONFIGURATION.HCAPTCHA_SITEKEY}>
         <Fields fields={["email", "new-password"]} />
         <Show when={isInviteOnly()}>

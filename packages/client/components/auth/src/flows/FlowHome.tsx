@@ -10,6 +10,7 @@ import { Button, Column } from "@revolt/ui";
 
 import { useState } from "@revolt/state";
 import Wordmark from "../../../../public/assets/web/wordmark.svg?component-solid";
+import { GoogleLoginButton, hasGoogleLogin } from "./GoogleLoginButton";
 
 /**
  * Flow for logging into an account
@@ -63,9 +64,10 @@ export default function FlowHome() {
             </Column>
 
             <Column>
+              <GoogleLoginButton />
               <a href="/login/auth">
                 <Column>
-                  <Button>
+                  <Button variant={hasGoogleLogin() ? "tonal" : "filled"}>
                     <Trans>Log In</Trans>
                   </Button>
                 </Column>

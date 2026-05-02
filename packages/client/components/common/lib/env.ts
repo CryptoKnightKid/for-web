@@ -52,6 +52,12 @@ export default {
     (import.meta.env.VITE_GIFBOX_URL as string) ??
     "https://api.gifbox.me",
   /**
+   * Optional Fortuna-owned auth bridge used for social login.
+   */
+  GOOGLE_AUTH_URL:
+    (import.meta.env.DEV ? import.meta.env.VITE_DEV_GOOGLE_AUTH_URL : undefined) ??
+    (import.meta.env.VITE_GOOGLE_AUTH_URL as string | undefined),
+  /**
    * hCaptcha site key to use if enabled
    */
   HCAPTCHA_SITEKEY: import.meta.env.VITE_HCAPTCHA_SITEKEY as string,
