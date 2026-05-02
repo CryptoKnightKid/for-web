@@ -37,7 +37,7 @@ export default function FlowCreate() {
     await api.post("/auth/account/create", {
       email,
       password,
-      captcha,
+      ...(captcha ? { captcha } : {}),
       ...(invite ? { invite } : {}),
     });
 
