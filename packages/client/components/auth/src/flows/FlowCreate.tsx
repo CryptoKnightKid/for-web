@@ -86,24 +86,6 @@ export default function FlowCreate() {
           </Button>
         </Row>
       </Form>
-      {import.meta.env.DEV && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            background: "white",
-            color: "black",
-            cursor: "pointer",
-          }}
-          onClick={() => {
-            setFlowCheckEmail("insert@stoat.chat");
-            navigate("/login/check", { replace: true });
-          }}
-        >
-          Mock Submission
-        </div>
-      )}
     </>
   );
 }
