@@ -6,7 +6,9 @@ import { styled } from "styled-system/jsx";
 import { useClient } from "@revolt/client";
 import { Navigate, useParams } from "@revolt/routing";
 
+import { parseLayerMeta } from "../../fortuna/layers";
 import { AgeGate } from "./AgeGate";
+import { FortunaLayerPage } from "./FortunaLayerPage";
 import { TextChannel } from "./text/TextChannel";
 
 /**
@@ -54,7 +56,7 @@ export const ChannelPage: Component = () => {
             contentName={"#" + channel().name}
             contentType="channel"
           >
-            <TextChannel channel={channel()} />
+            <ShowLayerOrChannel channel={channel()} />
           </AgeGate>
         </Match>
         {/* <Match when={channel()!.type === "VoiceChannel"}>
@@ -66,3 +68,15 @@ export const ChannelPage: Component = () => {
     </Base>
   );
 };
+
+function ShowLayerOrChannel(props: { channel: Channel }) {
+  const layer = createMemo(() => parseLayerMeta(props.channel.description));
+
+  return (
+    <Switch fallback={<TextChannel channel={props.channel} />}>
+      <Match when={layer()?.type && layer()?.type !== "channel"}>
+        <FortunaLayerPage channel={props.channel} />
+      </Match>
+    </Switch>
+  );
+}

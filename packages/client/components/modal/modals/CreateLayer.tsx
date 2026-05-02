@@ -10,6 +10,7 @@ import { Symbol } from "@revolt/ui/components/utils/Symbol";
 
 import { useModals } from "..";
 import { Modals } from "../types";
+import { defaultLayerMeta, encodeLayerMeta } from "../../../src/fortuna/layers";
 
 type LayerType = {
   id: "page" | "feed" | "product" | "collection" | "link" | "channel";
@@ -102,6 +103,11 @@ export function CreateLayerModal(
         type: layer.channelType,
         name: toChannelName(name),
       });
+      await channel.edit({
+        description: encodeLayerMeta(
+          defaultLayerMeta(layer.id, name.trim()),
+        ),
+      });
 
       await appendToCategory(props.server, props.categoryId, channel);
 
@@ -151,9 +157,8 @@ export function CreateLayerModal(
         </Grid>
         <Footer align>
           <Hint>
-            Page, feed, product, collection, and link layers are stored as
-            structured Fortuna channels until the proprietary content service is
-            added.
+            Page, product, collection, and link layers open as Fortuna content
+            screens. Feed and channel layers use the live Stoat message stream.
           </Hint>
           <Button variant="text" size="small" onPress={props.onClose}>
             Close
