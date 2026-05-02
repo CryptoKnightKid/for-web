@@ -17,6 +17,7 @@ import { CreateChannelModal } from "./modals/CreateChannel";
 import { CreateGroupModal } from "./modals/CreateGroup";
 import { CreateGroupOrServer } from "./modals/CreateGroupOrServer";
 import { CreateInviteModal } from "./modals/CreateInvite";
+import { CreateLayerModal } from "./modals/CreateLayer";
 import { CreateOrJoinServerModal } from "./modals/CreateOrJoinServer";
 import { CreateRoleModal } from "./modals/CreateRole";
 import { CreateServerModal } from "./modals/CreateServer";
@@ -99,6 +100,8 @@ export function RenderModal(props: ActiveModal & { onClose: () => void }) {
       return <CreateCategoryModal {...modalProps} />;
     case "create_channel":
       return <CreateChannelModal {...modalProps} />;
+    case "create_layer":
+      return <CreateLayerModal {...modalProps} />;
     case "create_group":
       return <CreateGroupModal {...modalProps} />;
     case "create_invite":

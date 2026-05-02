@@ -75,6 +75,12 @@ export type Modals =
       cb?: (channel: Channel) => void;
     }
   | {
+      type: "create_layer";
+      server: Server;
+      categoryId: string;
+      categoryTitle: string;
+    }
+  | {
       type: "create_group";
       client: Client;
     }

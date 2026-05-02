@@ -332,6 +332,7 @@ function Category(
     },
 ) {
   const state = useState();
+  const { openModal } = useModals();
   const isOpen = () => state.layout.getSectionState(props.category.id, true);
 
   const channels = createMemo(() =>
@@ -383,6 +384,21 @@ function Category(
           />
         )}
       </Draggable>
+      <Show when={isOpen() && !props.noOrdering() && props.category.id !== "default"}>
+        <AddLayerButton
+          onClick={() =>
+            openModal({
+              type: "create_layer",
+              server: props.server,
+              categoryId: props.category.id,
+              categoryTitle: props.category.title,
+            })
+          }
+        >
+          <Symbol size={18}>add</Symbol>
+          Add layer
+        </AddLayerButton>
+      </Show>
     </CategorySection>
   );
 }
@@ -437,6 +453,31 @@ const CategoryBase = styled("div", {
           transform: "rotateZ(90deg)",
         },
       },
+    },
+  },
+});
+
+const AddLayerButton = styled("button", {
+  base: {
+    display: "flex",
+    gap: "10px",
+    alignItems: "center",
+    width: "calc(100% - 24px)",
+    minHeight: "34px",
+    marginInline: "12px",
+    paddingInline: "12px",
+    border: "1px solid transparent",
+    borderRadius: "8px",
+    color: "rgba(255, 255, 255, 0.48)",
+    background: "transparent",
+    cursor: "pointer",
+    textAlign: "left",
+    transition: "140ms ease color, 140ms ease background, 140ms ease border-color",
+    ...typography.raw({ class: "label", size: "small" }),
+    _hover: {
+      color: "var(--fortuna-gold-bright)",
+      borderColor: "rgba(201, 164, 71, 0.2)",
+      background: "rgba(201, 164, 71, 0.07)",
     },
   },
 });
